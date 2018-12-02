@@ -15,7 +15,7 @@ trait Controller {
     /**
      * the menu name shown.
      */
-    protected $menu_name;
+    protected $menu_name = '';
     /**
      * The <h1> title of the page and the <title>.
      */
@@ -33,6 +33,9 @@ trait Controller {
      */
     protected $admin_page_name;
 
+    function __construct(){
+        // leaving blank to overrite
+    }
     /**
      * The function used to hold the settings configuration of the
      * plugin.
