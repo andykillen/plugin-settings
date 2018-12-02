@@ -3,9 +3,10 @@
 namespace PluginSettings;
 
 trait Controller {
-    use PluginSettings\Textarea;
-    use PluginSettings\Text;
-    use PluginSettings\Select;
+    use \PluginSettings\Textarea;
+    use \PluginSettings\Text;
+    use \PluginSettings\Select;
+    use \PluginSettings\Settings;
 
     /**
      * The access rights needed to be able to see the menu item.
@@ -19,10 +20,6 @@ trait Controller {
      * The <h1> title of the page and the <title>.
      */
     protected $ittle = "Plugin Settings";
-    /**
-     * The options name used.
-     */
-    protected $options_name;
     /**
      * the settings group name.
      */
