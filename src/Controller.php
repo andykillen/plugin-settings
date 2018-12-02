@@ -19,7 +19,7 @@ trait Controller {
     /**
      * The <h1> title of the page and the <title>.
      */
-    protected $ittle = "Plugin Settings";
+    protected $title = "Plugin Settings";
     /**
      * the settings group name.
      */
