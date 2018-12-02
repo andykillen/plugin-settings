@@ -47,6 +47,7 @@ trait Controller {
      * @return void
      */
     public function init(){
+        error_log('tryugngdfgkjfhgfdkj gfdjhgk jfdh');
         // setup menu page
         add_action( 'admin_menu', [ $this, 'menu' ] );
         add_action( 'admin_init', [ $this, 'page_init' ] );        
@@ -92,6 +93,7 @@ trait Controller {
     }
 
      public function page_init(){
+        error_log('trying');
         register_setting(
             $this->settings_group, // Option group
             $this->options_name, // Option name
@@ -99,6 +101,7 @@ trait Controller {
         );        
 
         foreach ( $this->settings() as $set ) :
+            error_log(print_r($set, true));
             $info = [];
             $info['field']=$set['id'];
             if(isset($set['options'])){
