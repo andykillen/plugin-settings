@@ -1,5 +1,5 @@
 {
-    "name": "andykillen/plugin-settings",
+    "name": "grokcodes/plugin-settings",
     "type": "library",
     "description": "A simple library of traits to enable faster building of settings pages for WordPress plugins",
     "version": "1.0.0",
