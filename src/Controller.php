@@ -95,38 +95,46 @@ trait Controller {
      public function page_init(){
         
         register_setting(
-            $this->settings_group, // Option group
+            $this->settings_group, // Settings group
             $this->options_name, // Option name
             array( $this , 'sanitize' ) // Sanitize
         );        
 
-        foreach ( $this->settings() as $set ) :
-            
-            $info = [];
-            $info['field']=$set['id'];
-            if(isset($set['options'])){
-                $info['options']=$set['options'];
-            }
-
-            // Making sure the method is in lowercase
-            $method_to_use = strtolower($set['type']);
-            // checking it exists
-            // if (! method_exists($this,$method_to_use)){
-            //     continue;
-            // }
-            error_log("using method " .$method_to_use );
-            if (! method_exists($this,$method_to_use)){
-                error_log(" method " .$method_to_use . " found" );
-            }
-            // adding field
-            add_settings_field(
-                $set['id'], // ID
-                $set['label'], // Title 
-                [ $this , $method_to_use ], // Callback
-                $this->admin_page_name, // Page
-                $this->settings_section, // Section
-                $info
+        
+        foreach ( $this->settings() as $section ) :
+            add_settings_section(
+                $section['section'],
+                $section['info'],
+                [$this, 'settings_section'],
+                $this->admin_page_name
             );
+
+            foreach($section['fields'] as $set) :
+            
+                $info = [];
+                $info['field']=$set['id'];
+                if(isset($set['options'])){
+                    $info['options']=$set['options'];
+                }
+
+                // Making sure the method is in lowercase
+                $method_to_use = strtolower($set['type']);
+                // checking it exists
+                if (! method_exists($this,$method_to_use)){
+                     continue;
+                }
+                
+                // adding field
+                add_settings_field(
+                    $set['id'], // ID
+                    $set['label'], // Title 
+                    [ $this , $method_to_use ], // Callback
+                    $this->admin_page_name, // Page
+                    $section['section'], // Section
+                    $info
+                );
+            endforeach;
+
         endforeach;
     }    
 
@@ -140,5 +148,7 @@ trait Controller {
         return $new_input;
     }
 
-   
+   public function settings_section_info(){
+
+   }
 }
