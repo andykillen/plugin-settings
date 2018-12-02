@@ -102,6 +102,7 @@ trait Controller {
 
         
         foreach ( $this->settings() as $section ) :
+            error_log(print_r($section, true));
             add_settings_section(
                 $section['section'],
                 $section['info'],
