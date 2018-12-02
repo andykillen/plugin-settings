@@ -110,7 +110,7 @@ trait Controller {
             );
 
             foreach($section['fields'] as $set) :
-                error_log($set);
+                error_log(print_r($set, true));
                 $info = [];
                 $info['field']=$set['id'];
                 if(isset($set['options'])){
@@ -148,7 +148,7 @@ trait Controller {
         return $new_input;
     }
 
-   public function settings_section_info(){
+   public function settings_section(){
 
    }
 }
