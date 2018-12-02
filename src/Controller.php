@@ -111,9 +111,9 @@ trait Controller {
             // Making sure the method is in lowercase
             $method_to_use = strtolower($set['type']);
             // checking it exists
-            if (! method_exists($this,$method_to_use)){
-                continue;
-            }
+            // if (! method_exists($this,$method_to_use)){
+            //     continue;
+            // }
             // adding field
             add_settings_field(
                 $set['id'], // ID
