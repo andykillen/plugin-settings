@@ -110,7 +110,7 @@ trait Controller {
             );
 
             foreach($section['fields'] as $set) :
-            
+                error_log($set);
                 $info = [];
                 $info['field']=$set['id'];
                 if(isset($set['options'])){
