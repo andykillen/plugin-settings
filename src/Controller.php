@@ -114,6 +114,10 @@ trait Controller {
             // if (! method_exists($this,$method_to_use)){
             //     continue;
             // }
+            error_log("using method " .$method_to_use );
+            if (! method_exists($this,$method_to_use)){
+                error_log(" method " .$method_to_use . " found" );
+            }
             // adding field
             add_settings_field(
                 $set['id'], // ID
