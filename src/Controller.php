@@ -102,7 +102,7 @@ trait Controller {
 
         
         foreach ( $this->settings() as $section ) :
-            error_log(print_r($section, true));
+            
             add_settings_section(
                 $section['section'],
                 $section['info'],
@@ -111,7 +111,7 @@ trait Controller {
             );
 
             foreach($section['fields'] as $set) :
-                error_log(print_r($set, true));
+                
                 $info = [];
                 $info['field']=$set['id'];
                 if(isset($set['options'])){
@@ -150,6 +150,6 @@ trait Controller {
     }
 
    public function settings_section(){
-
+        echo "<p>this is a section</p>";
    }
 }
