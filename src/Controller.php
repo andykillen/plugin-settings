@@ -35,6 +35,7 @@ trait Controller {
 
     function __construct(){
         // leaving blank to overrite
+        error_log("I am also");
     }
     /**
      * The function used to hold the settings configuration of the
