@@ -6,6 +6,7 @@ trait Text {
     
     public function text($info)
     {
+        error_log('I am loading the text thing');
         printf(
             '<input type="text" id="%s" name="%s[%s]" value="%s" />',
             $info['field'],
